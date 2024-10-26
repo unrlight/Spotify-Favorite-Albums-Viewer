@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Любимые альбомы</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #121212;
+            color: #FFFFFF;
+        }
+        .album-title {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .artist-name {
+            font-size: 1em;
+            color: #B3B3B3;
+        }
+        .album-card {
+            margin-bottom: 30px;
+            cursor: pointer;
+            text-align: center;
+        }
+        .album-card:hover {
+            opacity: 0.8;
+        }
+        .album-image {
+            width: 100%;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 class="my-4">Любимые альбомы</h1>
+    <div class="row">
+        {% for album in albums %}
+        <div class="col-md-3 album-card" onclick="window.open('{{ album.url }}', '_blank')">
+            <img src="{{ album.image }}" alt="{{ album.name }}" class="album-image">
+            <p class="artist-name mt-2">{{ album.artist }}</p>
+            <p class="album-title">{{ album.name }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+</body>
+</html>
